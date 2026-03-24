@@ -1,0 +1,12 @@
+{
+  "name": "com.amaxsoftware.swiftpublicpackagestringsgenerator",
+  "version": "0.0.1",
+  "description": "A code generation utility that exports Swift Package string catalogs as public LocalizedStringResource properties for external access.",
+  "license": "MIT",
+  "author": "Andrei Maksimovich",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "generate": "node index.js"
+  }
+}

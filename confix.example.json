@@ -1,0 +1,29 @@
+{
+    "prefix": "loc.",
+    "path": "/path/to/your/xcode/project",
+    "modules": [
+        {
+            "path": "Packages/Localization/Sources/Localization",
+            "prefix": "",
+            "outputPath": "LocalizedStringResource.Extension.Generated.swift",
+            "catalogs": [
+                {
+                    "path": "Resources/Localizable.xcstrings"
+                },
+                {
+                    "path": "Resources/Strings.xcstrings",
+                    "prefix": "Strings."
+                }
+            ]
+        },
+        {
+            "path": "Packages/A/Sources/A",
+            "prefix": "A.",
+            "catalogs": [
+                {
+                    "path": "Resources/Localizable.xcstrings"
+                }
+            ]
+        }
+    ]
+}
