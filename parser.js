@@ -13,7 +13,15 @@ export function parseStringCatalogFile(catalogStringIdPrefix, catalogPath) {
     const catalogStrings = new Map()
 
     for (let stringKey of Object.keys(xcodeStringCatalog.strings)) {
-        const localizations = xcodeStringCatalog.strings[stringKey]
+        const localizedString = xcodeStringCatalog.strings[stringKey]
+
+        if (localizedString.extractionState !== 'manual') {
+            console.log(`Skipping non manual string: ${stringKey}`)
+            continue
+        }
+
+        const localizations = localizedString.localizations
+
         const values = getStringUnitValues(localizations)
         const allVariables = []
         for (let stringValue of values) {
