@@ -55,6 +55,8 @@ export function parseStringCatalogFile(catalogStringIdPrefix, catalogPath) {
 const variableRegEx = /%([0-9]+\$)?(\([^\)]+\))?(lld|llu|lf|\@)/g;
 
 function getStringUnitValues(data) {
+    if (!data) return []
+
     const result = []
     function _getStringUnitValues(data) {
         for (let key of Object.keys(data)) {
