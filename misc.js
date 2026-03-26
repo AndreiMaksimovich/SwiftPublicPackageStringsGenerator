@@ -34,8 +34,12 @@ const catalogSrtingKeyCleanRegEx =  /[^a-zA-Z0-9]/g
  * @returns {string}
  */
 export function stringCatalogKeyToSwiftCodeVariableName(value) {
-    let id = value.replace(catalogSrtingKeyCleanRegEx, '')
-    return id.charAt(0).toLowerCase() + id.slice(1);
+    const parts = value.split(catalogSrtingKeyCleanRegEx)
+    parts[0] = parts[0].charAt(0).toLowerCase() + parts[0].slice(1)
+    for (let i=1; i<parts.length; i++) {
+        parts[i] = parts[i].charAt(0).toUpperCase() + parts[i].slice(1)
+    }
+    return parts.join('')
 }
 
 const stringIdCleanRegEx = /[^a-zA-Z0-9\.]/g
