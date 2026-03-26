@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import { 
     stringCatalogKeyToSwiftCodeVariableName, 
-    stringCatalogCariableTypeToSwiftType,
+    stringCatalogVariableTypeToSwiftType,
 } from './misc.js';
 
 /**
@@ -46,7 +46,7 @@ export function generateSwiftLocalizedStringResourceExtension(moduleStrings, out
         const rightArguments = []
 
         for (let [index, variable] of moduleString.variables.entries()) {
-            const type = stringCatalogCariableTypeToSwiftType(variable.type)
+            const type = stringCatalogVariableTypeToSwiftType(variable.type)
             const useName = variable.name !== undefined
             leftArguments.push(useName ? `${variable.name}: ${type}` : `_ arg${index+1}: ${type}`)
             rightArguments.push(useName ?`${variable.name}: ${variable.name}` : `arg${index+1}`)

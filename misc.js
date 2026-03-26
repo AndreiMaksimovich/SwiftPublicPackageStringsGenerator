@@ -4,7 +4,7 @@ import path from 'node:path';
  * @param {string} type
  * @returns {string} Returns the Swift type of a string catalog variable
  */
-export function stringCatalogCariableTypeToSwiftType(type) {
+export function stringCatalogVariableTypeToSwiftType(type) {
     switch (type) {
         case "lld":
             return "Int"
