@@ -60,6 +60,7 @@ export function sanitizeStringId(stringId) {
  */
 export function stringCatalogFileToSwiftTableName(catalogFilePath) {
     const fileName = path.basename(catalogFilePath)
-    const tableName = fileName.substring(0, fileName.length - path.extname(fileName).length)
+    let tableName = fileName.substring(0, fileName.length - path.extname(fileName).length)
+    tableName = tableName.replace(catalogSrtingKeyCleanRegEx, '')
     return tableName !== "Localizable" ? tableName : null
 }
